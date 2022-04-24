@@ -77,8 +77,9 @@ class Scoreboard{
    points+=(request.length*10);  
    if (level == 8){ //max size of request
        level = int(random(5,8));
+   } else{
+     level += 1;
    }
-   level += 1;
    return;
    /*
    Boolean correct = true;
