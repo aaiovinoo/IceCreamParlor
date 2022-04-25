@@ -16,12 +16,19 @@ void setup(){
 }
 
 void draw(){
-  background(sky);
-  cone.drawcone();
-  cone.move();
-  scoops.display();
-  score.display();
-  shouldscore = cone.submit(scoops); 
+  
+  if(!score.lost()){
+    background(sky);
+    cone.drawcone();
+    cone.move();
+    scoops.display();
+    score.display();
+    shouldscore = cone.submit(scoops); 
+  }else{
+    //game over screen
+        score.gameOver();
+  }
+  
  
   
   //noLoop();
@@ -34,6 +41,13 @@ void keyPressed() {
       } else  if (keyCode == RIGHT){
        cone.moveLeft = false;
       }
+    }
+    if(score.lost() && key ==' '){
+      //rstarts the game if on Game Over
+      println("debug");
+      score = new Scoreboard();
+      scoops = new Scoops();
+      scoops.loadShapes();
     }
    
 }

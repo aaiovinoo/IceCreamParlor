@@ -114,16 +114,28 @@ class Scoreboard{
      */
  }
  
- void mainMethod(Cone cone){
-     
+ Boolean lost(){
      
      if (lives == 0){
-        noLoop();
+        return true;
+       /*
         textSize(100);
         textAlign(CENTER,CENTER);
         text("GAME OVER", width/2, height/2);
+        */
      }
-   
+     return false;
+ }
+ 
+ void gameOver(){
+        textSize(100);
+        textAlign(CENTER,CENTER);
+        text("GAME OVER", width/2, height/2);
+ }
+ 
+ void restart(){
+    points = 0;
+    
  }
   
 }

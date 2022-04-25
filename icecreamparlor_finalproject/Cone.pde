@@ -29,7 +29,7 @@ class Cone {
   }
   
   void move() {
-    if(keyPressed){
+    if(keyPressed && (keyCode == LEFT || keyCode == RIGHT)){
         if (moveLeft){ 
           xpos -= speed;
         } else { 
