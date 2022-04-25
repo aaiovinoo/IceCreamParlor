@@ -7,7 +7,8 @@ class Scoreboard{
     lives = 3;
     level = 1;
     // TO DO make the request larger when level advances
-    request = new int[1];
+   
+    request = new int[level];
     for (int i = 0; i < request.length ; i++){
       request[i] = int(random(scoops.shapes.length));
       //println(int(random(scoops.shapes.length)));
@@ -54,7 +55,11 @@ class Scoreboard{
  // creates a brand new request 
  // this method is called whenever the user completes an order
  void newRequest(){
+   if(level < 6){
     request = new int[level];
+   }else{
+     request = new int[level];
+   }
     for (int i = 0; i < request.length ; i++){
       request[i] = int(random(scoops.shapes.length));
       //println(int(random(scoops.shapes.length)));

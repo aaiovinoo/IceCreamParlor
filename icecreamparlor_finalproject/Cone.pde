@@ -29,11 +29,13 @@ class Cone {
   }
   
   void move() {
+    if(keyPressed){
         if (moveLeft){ 
           xpos -= speed;
         } else { 
           xpos += speed;
         }
+    }
   }
                 
 }    
