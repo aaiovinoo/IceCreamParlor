@@ -63,6 +63,7 @@ class Scoops{
          
       Scoop scoop = scoopstack.get(i);
           if (scoopstack.get(i).id != request.get(i).id){
+            score.lives--;
             //println("doesn't the request");
              scoop.position.x = cone.xpos+scoop.offsetCone.x;
              scoop.position.y = cone.ypos+scoop.offsetCone.y - scoop.levelOnStack*30;
@@ -71,7 +72,7 @@ class Scoops{
             return false;
           } else {
             if (i == request.size()-1){
-             print("GOOD JOB! you completed an order");
+             println("GOOD JOB! you completed an order");
              // TO-DO : call scoreboard and add points
          
              reset();

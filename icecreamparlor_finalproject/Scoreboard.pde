@@ -1,11 +1,13 @@
 class Scoreboard{
   int points, lives, level;
   int[] request;
+  
  
  Scoreboard(){
     points = 0;
     lives = 3;
     level = 1;
+    
     // TO DO make the request larger when level advances
    
     request = new int[level];
@@ -74,6 +76,10 @@ class Scoreboard{
          newRequest();
          upScore();
      };
+     for(int i = 0; i<lives; i++){
+        image(life,50+32*i,40,16,16);
+     }
+     
  }
  
  //increates score and increases level
