@@ -127,7 +127,7 @@ class Scoreboard{
  }
  
  void gameOver(){
-        textSize(100);
+        textSize(80);
         textAlign(CENTER,CENTER);
         text("GAME OVER", width/2, height/2);
  }

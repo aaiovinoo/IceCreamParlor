@@ -64,6 +64,8 @@ class Scoops{
     for (int i = 0; i < scoopstack.size(); i ++){
          
       Scoop scoop = scoopstack.get(i);
+      
+      
           if (scoopstack.get(i).id != request.get(i).id){
             score.lives--;
             //println("doesn't the request");
