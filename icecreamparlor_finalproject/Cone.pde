@@ -12,16 +12,9 @@ class Cone {
     moveLeft = true;
   }
   
-  void drawcone() {
+  void display() {
     image(coneImg, xpos, ypos,60,100);
-    if (xpos >width) { 
-      //xpos = width-60;
-      xpos = 0;
-    } else if (xpos < -60){
-     //xpos = 0;
-     xpos = width-60;
-    }
-    
+
   } 
   
   boolean submit(Scoops curscoops) { 
@@ -29,7 +22,9 @@ class Cone {
   }
   
   void move() {
+
     if(keyPressed && (keyCode == LEFT || keyCode == RIGHT)){
+
         if (moveLeft){ 
           xpos -= speed;
         } else { 

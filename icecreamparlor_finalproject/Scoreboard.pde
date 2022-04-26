@@ -23,12 +23,11 @@ class Scoreboard{
      int h = 100;
      stroke(255,199,240);
      strokeWeight(10);
-     fill(0);
+     fill(31,38,42);
      rect(25,25,w,h,10);
      fill(255);
-     textSize(30);
-     textAlign(CENTER,CENTER);
-     text(points,w-90,h-25);
+     textAlign(RIGHT,CENTER);
+     text(points,w-25,h-25);
      
     ArrayList<Scoop> scoopsReq = new ArrayList<Scoop>();
     String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "blueberry", "coffee","lemon","strawberry"};
@@ -41,15 +40,15 @@ class Scoreboard{
        Scoop temp = new Scoop(request[i],shape);
        scoopsReq.add(temp);
      }
-     int d = 20;
+     int d = 25;
      for(Scoop scoop : scoopsReq){
        scoop.position.x = 50+d;
-       scoop.position.y = 80;
+       scoop.position.y = 105;
        pushMatrix();
-       scale(0.6);
+       scale(0.5);
        scoop.display();
        popMatrix();
-       d+=75;
+       d+=50;
      }
      return scoopsReq;
  }
@@ -73,8 +72,8 @@ class Scoreboard{
      ArrayList<Scoop> scoopsReq = createRequest();
      if (scoops.meetsRequest(scoopsReq)){
          //gets new request
-         newRequest();
          upScore();
+         newRequest();
      };
      for(int i = 0; i<lives; i++){
         image(life,50+32*i,40,16,16);
@@ -85,7 +84,7 @@ class Scoreboard{
  //increates score and increases level
  // the level dictates the size of the order
  void upScore(){
-   points+=(request.length*10);  
+   points+=(request.length*100);  
    if (level == 8){ //max size of request
        level = int(random(5,8));
    } else{
