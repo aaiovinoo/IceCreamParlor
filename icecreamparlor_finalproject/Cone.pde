@@ -22,19 +22,15 @@ class Cone {
   }
   
   void move() {
-        if (xpos >width) { 
-      //xpos = width-60;
-      xpos = 0;
-    } else if (xpos < -60){
-     //xpos = 0;
-     xpos = width-60;
-    }
-    
+
+    if(keyPressed && (keyCode == LEFT || keyCode == RIGHT)){
+
         if (moveLeft){ 
           xpos -= speed;
         } else { 
           xpos += speed;
         }
+    }
   }
                 
 }    

@@ -28,6 +28,9 @@ class Scoop{
       position.y += velocity;
       //reset velocity and position at top when it reaches the bottom of the screen
       if (position.y > height){
+        if(id == score.createRequest().get(0).id){
+            score.lives--;
+        }
         position.y = -50;
         //position.x = random(50,450);
         int newId = int(random(scoops.shapes.length));
