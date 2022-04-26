@@ -11,7 +11,6 @@ class Scoops{
    
    void loadShapes(){
      String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "blueberry", "coffee","lemon","strawberry"};
-     //String[] flavors = new String[]{"mint"};
      
      for (int i=0; i<shapes.length; i++){
         String source = "data/" + flavors[i] + ".svg";
@@ -51,12 +50,15 @@ class Scoops{
            scoop.display();
        }
       
-   }
+   } // ends display()
    
    void reset(){
        scoopstack.clear();
        cone.numScoops = 0;
    }
+  
+   
+   
    
   boolean meetsRequest(ArrayList<Scoop> request){
     for (int i = 0; i < scoopstack.size(); i ++){
@@ -72,8 +74,9 @@ class Scoops{
           } else {
             if (i == request.size()-1){
              print("GOOD JOB! you completed an order");
+            
              // TO-DO : call scoreboard and add points
-         
+             
              reset();
              return true;
             }
