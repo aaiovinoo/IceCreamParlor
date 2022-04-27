@@ -2,7 +2,8 @@ class Cone {
   float xpos, ypos;
   int speed; 
   int numScoops; //should be equal to length of contents, but abi is initializing so she can write her code
-  boolean moveLeft;
+  Boolean moveLeft;
+  int w, h; //width and height to display;
   
   Cone(float xpos, float ypos, int speed){
     this.xpos = xpos;
@@ -10,10 +11,12 @@ class Cone {
     this.speed = speed;
     numScoops = 0; //initalizes at empty
     moveLeft = true;
+    w = 60;
+    h = 100;
   }
   
   void display() {
-    image(coneImg, xpos, ypos,60,100);
+    image(coneImg, xpos, ypos,w,h);
 
   } 
   
@@ -24,13 +27,22 @@ class Cone {
   void move() {
 
     if(keyPressed && (keyCode == LEFT || keyCode == RIGHT)){
-
-        if (moveLeft){ 
-          xpos -= speed;
-        } else { 
-          xpos += speed;
-        }
+      if(this.xpos >= -60 && this.xpos <= width){
+        this.xpos+=speed;
+      }else if(this.xpos <-60){
+         this.xpos = width-1; 
+      }else{
+         this.xpos = -59; 
+      }
+        
     }
+  }
+  
+  void moveLeft(){
+      speed = -1*abs(speed);
+  }
+  void moveRight(){
+       speed = abs(speed);
   }
                 
 }    

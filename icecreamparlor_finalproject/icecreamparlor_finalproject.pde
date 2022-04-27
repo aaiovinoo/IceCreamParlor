@@ -18,9 +18,9 @@ String path;
 PFont font;
   
 void setup(){
-    path = sketchPath(audioName);
-    SoundFile file = new SoundFile(this, path);
-    file.loop();
+    //path = sketchPath(audioName);
+    //SoundFile file = new SoundFile(this, path);
+    //file.loop();
     
     font = createFont("data/font.ttf", 30);
     textFont(font, 30);
@@ -31,7 +31,7 @@ void setup(){
   coneImg = loadImage("data/cone.png");
 
   life = loadImage("data/heart.png");
-  nightPNG = loadImage("data/night.png");
+  //nightPNG = loadImage("data/night.png");
   frameRate(80);
 }
 
@@ -54,9 +54,11 @@ void draw(){
 void keyPressed() {
     if (key == CODED){
       if (keyCode == LEFT){
-        cone.moveLeft = true;
+        println("debugL: "+cone.xpos);
+        cone.moveLeft();
       } else  if (keyCode == RIGHT){
-       cone.moveLeft = false;
+        println("debugR: "+cone.xpos);
+       cone.moveRight();
       }
     }
     if(score.lost() && key ==' '){

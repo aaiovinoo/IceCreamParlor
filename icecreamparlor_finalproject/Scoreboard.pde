@@ -5,7 +5,7 @@ class Scoreboard{
  
  Scoreboard(){
     points = 0;
-    lives = 3;
+    lives = 8;
     level = 1;
     
     // TO DO make the request larger when level advances
