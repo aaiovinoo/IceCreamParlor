@@ -4,12 +4,13 @@ class Scoop{
   float velocity;
   PShape shape;
   boolean caught;
+  
 
  
   Scoop(int id, PShape shape){
     this.id = id;
     this.shape = shape;
-    position = new PVector(id*70,-50);
+    position = new PVector(id*52,-50);
     offsetCone = new PVector(-20,-40);
     velocity = 2*random(.7,1.7); //pixels per frame
     // adding a small difference in velocities to make the cones fall at different times

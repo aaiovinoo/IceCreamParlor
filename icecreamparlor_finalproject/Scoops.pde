@@ -5,12 +5,12 @@ class Scoops{
     ArrayList<Scoop> fallingscoops = new ArrayList<Scoop>();
    
    Scoops(){
-     this.shapes = new PShape[8];
+     this.shapes = new PShape[9];
      //this.shapes = new PShape[1];
    } 
    
    void loadShapes(){
-     String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "blueberry", "coffee","lemon","strawberry"};
+     String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "cherry","blueberry", "coffee","lemon","strawberry"};
      
      for (int i=0; i<shapes.length; i++){
         String source = "data/" + flavors[i] + ".svg";

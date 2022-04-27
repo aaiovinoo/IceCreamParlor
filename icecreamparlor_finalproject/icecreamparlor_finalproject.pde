@@ -1,7 +1,7 @@
 Sky sky = new Sky();
 Scoops scoops = new Scoops();
 Cone cone;
-PImage coneImg;
+PShape coneSvg;
 PImage life;
 PImage nightPNG;
 
@@ -13,14 +13,14 @@ Scoreboard score = new Scoreboard();
 import processing.sound.*;
  SoundFile backgroundMusic;
 //replace the sample.mp3 with your audio file name here
-String audioName = "data/mrplastic-hot-air-11027.mp3";
-String path;
+//String audioName = "data/mrplastic-hot-air-11027.mp3";
+//String path;
 PFont font;
   
 void setup(){
-    path = sketchPath(audioName);
-    SoundFile file = new SoundFile(this, path);
-    file.loop();
+    //path = sketchPath(audioName);
+    //SoundFile file = new SoundFile(this, path);
+    //file.loop();
     
     font = createFont("data/font.ttf", 30);
     textFont(font, 30);
@@ -28,7 +28,7 @@ void setup(){
   scoops.loadShapes();
   //Cone(float xpos, float ypos, int speed)
   cone = new Cone(width/2,height-100,4);
-  coneImg = loadImage("data/cone.png");
+  cone.loadImages();
 
   life = loadImage("data/heart.png");
   nightPNG = loadImage("data/night.png");

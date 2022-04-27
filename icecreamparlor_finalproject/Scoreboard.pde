@@ -30,7 +30,7 @@ class Scoreboard{
      text(points,w-25,h-25);
      
     ArrayList<Scoop> scoopsReq = new ArrayList<Scoop>();
-    String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "blueberry", "coffee","lemon","strawberry"};
+    String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "cherry","blueberry", "coffee","lemon","strawberry"};
      for(int i = 0; i < request.length ; i++){
        //corrected some errors with having the right id
        String source = "data/" + flavors[request[i]] + ".svg";
@@ -56,7 +56,7 @@ class Scoreboard{
  // creates a brand new request 
  // this method is called whenever the user completes an order
  void newRequest(){
-   if(level < 6){
+   if(level < 9){
     request = new int[level];
    }else{
      request = new int[level];
@@ -85,7 +85,7 @@ class Scoreboard{
  // the level dictates the size of the order
  void upScore(){
    points+=(request.length*100);  
-   if (level == 8){ //max size of request
+   if (level == 9){ //max size of request
        level = int(random(5,8));
    } else{
      level += 1;
