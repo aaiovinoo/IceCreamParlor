@@ -1,13 +1,16 @@
 class Scoreboard{
   int points, lives, level;
   int[] request;
+  
  
  Scoreboard(){
     points = 0;
     lives = 3;
     level = 1;
+    
     // TO DO make the request larger when level advances
-    request = new int[1];
+   
+    request = new int[level];
     for (int i = 0; i < request.length ; i++){
       request[i] = int(random(scoops.shapes.length));
       //println(int(random(scoops.shapes.length)));
@@ -53,7 +56,11 @@ class Scoreboard{
  // creates a brand new request 
  // this method is called whenever the user completes an order
  void newRequest(){
+   if(level < 6){
     request = new int[level];
+   }else{
+     request = new int[level];
+   }
     for (int i = 0; i < request.length ; i++){
       request[i] = int(random(scoops.shapes.length));
       //println(int(random(scoops.shapes.length)));
@@ -68,6 +75,10 @@ class Scoreboard{
          upScore();
          newRequest();
      };
+     for(int i = 0; i<lives; i++){
+        image(life,50+32*i,40,16,16);
+     }
+     
  }
  
  //increates score and increases level
@@ -102,16 +113,28 @@ class Scoreboard{
      */
  }
  
- void mainMethod(Cone cone){
-     
+ Boolean lost(){
      
      if (lives == 0){
-        noLoop();
+        return true;
+       /*
         textSize(100);
         textAlign(CENTER,CENTER);
         text("GAME OVER", width/2, height/2);
+        */
      }
-   
+     return false;
+ }
+ 
+ void gameOver(){
+        textSize(80);
+        textAlign(CENTER,CENTER);
+        text("GAME OVER", width/2, height/2);
+ }
+ 
+ void restart(){
+    points = 0;
+    
  }
   
 }
