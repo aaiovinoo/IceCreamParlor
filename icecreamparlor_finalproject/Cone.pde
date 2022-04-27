@@ -13,7 +13,7 @@ class Cone {
   }
   
   void display() {
-    image(coneImg, xpos, ypos,60,100);
+    shape(coneSvg, xpos, ypos,60,100);
 
   } 
   

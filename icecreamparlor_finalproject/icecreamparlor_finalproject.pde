@@ -1,7 +1,7 @@
 Sky sky = new Sky();
 Scoops scoops = new Scoops();
 Cone cone;
-PImage coneImg;
+PShape coneSvg;
 PImage nightPNG;
 Boolean shouldscore = false;
 Scoreboard score = new Scoreboard();
@@ -26,7 +26,7 @@ void setup(){
   scoops.loadShapes();
   //Cone(float xpos, float ypos, int speed)
   cone = new Cone(width/2,height-100,4);
-  coneImg = loadImage("data/cone.png");
+  coneSvg = loadShape("data/cone_0.svg");
   
   nightPNG = loadImage("data/night.png");
   frameRate(80);
