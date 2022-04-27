@@ -80,7 +80,6 @@ class Scoops{
              println("GOOD JOB! you completed an order");
 
              // TO-DO : call scoreboard and add points
-             
              reset();
              return true;
             }
@@ -91,7 +90,7 @@ class Scoops{
            
            //draw a check
            
-         image(checkMark, 48+25*i,50,30,30);
+         //image(checkMark, 48+25*i,50,30,30);
           }
           
 

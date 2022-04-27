@@ -1,7 +1,7 @@
 class Scoreboard{
-  int points, lives, level;
+  int points, lives, level, pointsRaised; //pointsRaised is how many points the player won in their last cone
   int[] request;
-  
+  ArrayList<Message> messages = new ArrayList<Message>();
  
  Scoreboard(){
     points = 0;
@@ -27,6 +27,7 @@ class Scoreboard{
      rect(25,25,w,h,10);
      fill(255);
      textAlign(RIGHT,CENTER);
+     textFont(chalkFont, 30);
      text(points,w-25,h-25);
      
     ArrayList<Scoop> scoopsReq = new ArrayList<Scoop>();
@@ -78,13 +79,18 @@ class Scoreboard{
      for(int i = 0; i<lives; i++){
         image(life,50+32*i,90,16,16);
      }
+     for (Message msg : messages){
+       msg.display();
+     }
      
  }
  
  //increates score and increases level
  // the level dictates the size of the order
  void upScore(){
-   points+=(request.length*100);  
+   pointsRaised = (request.length*100);
+   points+= pointsRaised;  
+   messages.add(new Message("+"+String.valueOf(pointsRaised),new PVector(cone.xpos, height-100),cone.xpos));
    if (level == 9){ //max size of request
        level = int(random(5,8));
    } else{
@@ -112,6 +118,8 @@ class Scoreboard{
      sc.scoopstack.clear();
      */
  }
+ 
+
  
  Boolean lost(){
      
