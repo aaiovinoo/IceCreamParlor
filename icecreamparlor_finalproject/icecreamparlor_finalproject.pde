@@ -2,7 +2,10 @@ Sky sky = new Sky();
 Scoops scoops = new Scoops();
 Cone cone;
 PShape coneSvg;
+<<<<<<< Updated upstream
 PImage nightPNG;
+=======
+>>>>>>> Stashed changes
 Boolean shouldscore = false;
 Scoreboard score = new Scoreboard();
 //import ddf.minim.*;
@@ -26,9 +29,14 @@ void setup(){
   scoops.loadShapes();
   //Cone(float xpos, float ypos, int speed)
   cone = new Cone(width/2,height-100,4);
+<<<<<<< Updated upstream
   coneSvg = loadShape("data/cone_0.svg");
   
   nightPNG = loadImage("data/night.png");
+=======
+  coneSvg = loadShape("data/cone_reg_pink.svg");
+  
+>>>>>>> Stashed changes
   frameRate(80);
 }
 
