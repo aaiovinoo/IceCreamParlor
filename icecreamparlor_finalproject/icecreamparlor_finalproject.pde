@@ -24,8 +24,7 @@ void setup(){
     //SoundFile file = new SoundFile(this, path);
     //file.loop();
     
-    chalkFont = createFont("data/chalkFont.ttf", 30);
-    regFont = createFont("data/regFont.ttf",50);
+  regFont = createFont("data/regFont.ttf",50);
   checkMark = loadImage("data/x.png");
   size(510,800);
   scoops.loadShapes();
