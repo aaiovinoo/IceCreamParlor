@@ -16,7 +16,7 @@ class Cone {
   }
   
   void loadImages(){
-       String[] types = new String[]{"cone_0", "cone_1", "cone_2", "cone_4", "cone_reg_white", "cone_choco_white",
+       String[] types = new String[]{"cone_1", "cone_2", "cone_4", "cone_reg_white", "cone_choco_white",
      "cone_reg_strawberry","cone_choco_strawberry", "cone_reg_mint", "cone_choco_mint"};
      
      for (int i=0; i<types.length; i++){
@@ -30,7 +30,7 @@ class Cone {
      
   
   void display() {
-    currentCone = cones.get(score.level);
+    currentCone = cones.get(score.level-1);
     image(currentCone, xpos, ypos,60,100);
 
   } 

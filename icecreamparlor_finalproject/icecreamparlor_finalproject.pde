@@ -4,6 +4,7 @@ Cone cone;
 PShape coneSvg;
 PImage life;
 PImage nightPNG;
+PImage checkMark;
 
 Boolean shouldscore = false;
 Scoreboard score = new Scoreboard();
@@ -24,6 +25,7 @@ void setup(){
     
     font = createFont("data/font.ttf", 30);
     textFont(font, 30);
+  checkMark = loadImage("data/x.png");
   size(510,800);
   scoops.loadShapes();
   //Cone(float xpos, float ypos, int speed)
@@ -43,6 +45,7 @@ void draw(){
     scoops.display();
     score.display();
     shouldscore = cone.submit(scoops); 
+    
   }else{
     //game over screen
     score.gameOver();

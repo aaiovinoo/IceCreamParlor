@@ -43,7 +43,7 @@ class Scoreboard{
      int d = 25;
      for(Scoop scoop : scoopsReq){
        scoop.position.x = 50+d;
-       scoop.position.y = 105;
+       scoop.position.y = 78;
        pushMatrix();
        scale(0.5);
        scoop.display();
@@ -76,7 +76,7 @@ class Scoreboard{
          newRequest();
      };
      for(int i = 0; i<lives; i++){
-        image(life,50+32*i,40,16,16);
+        image(life,50+32*i,90,16,16);
      }
      
  }

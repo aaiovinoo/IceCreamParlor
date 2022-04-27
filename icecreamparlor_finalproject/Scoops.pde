@@ -88,6 +88,10 @@ class Scoops{
            scoop.position.x = cone.xpos+scoop.offsetCone.x;
            scoop.position.y = cone.ypos+scoop.offsetCone.y - scoop.levelOnStack*30;
            scoop.display();
+           
+           //draw a check
+           
+         image(checkMark, 48+25*i,50,30,30);
           }
           
 
