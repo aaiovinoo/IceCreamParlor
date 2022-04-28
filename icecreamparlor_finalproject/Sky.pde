@@ -7,7 +7,6 @@ class Sky{
   color night2 = color(25,25,112);
   color morning1 =  color(105,53,156);
   color morning2 =  color(214,82,130);
-  PShape night;
   color c;
   Sky(){
     
@@ -21,7 +20,9 @@ class Sky{
          c = color(137,207,240);
        }
        return c;
+       
   }
+  
   /*
   void display(color c1, color c2){
     noFill();  
