@@ -42,6 +42,7 @@ class Scoops{
             scoop.id = newId;
             scoop.shape = scoops.shapes[scoop.id];
             scoop.caught = false;
+            scoop.velocity = (score.level+2)*random(1.3,1.6);
         }
       }
       
@@ -90,7 +91,7 @@ class Scoops{
            
            //draw a check
            
-         //image(checkMark, 48+25*i,50,30,30);
+          image(checkMark, 48+25*i,50,30,30);
           }
           
 

@@ -15,7 +15,6 @@ class Cloud{
     } else{
        position.x += 1;
     }
-    tint(255,125);
     image(cloud, position.x, position.y, size.x, size.y);
   }
 }

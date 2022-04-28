@@ -16,8 +16,10 @@ class Clouds{
   }
   
   void display(){
+    
        for (Cloud cloud : clouds){ 
            cloud.move();
        }
+       
   }
 }

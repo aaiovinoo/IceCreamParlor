@@ -20,10 +20,10 @@ class Message{
     }
      position.y -= 4;
      textAlign(CENTER,CENTER);
-     if (1/(2*x)<2){
-        textFont(regFont, 50*(1/(2*x)));
+     if (1/(2*x)<3){
+        textFont(regFont, 50*(1/(2*x+.1)));
      } else {
-         textFont(regFont, 100);   
+         textFont(regFont, 170);   
      }
      colorMode(RGB, 255, 255, 255, 1);
      fill(255,255,255,x);
@@ -32,7 +32,7 @@ class Message{
      
      //dim opacity
      if (x>=0){
-       x -= .02;
+       x -= .01;
      }
    }}
   

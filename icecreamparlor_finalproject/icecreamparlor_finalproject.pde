@@ -12,17 +12,15 @@ Scoreboard score = new Scoreboard();
 //import ddf.minim.*;
 //Minim minim;
 //AudioPlayer player;
-import processing.sound.*;
- SoundFile backgroundMusic;
+//import processing.sound.*;
+ //SoundFile backgroundMusic;
 //replace the sample.mp3 with your audio file name here
 //String audioName = "data/mrplastic-hot-air-11027.mp3";
 //String path;
 PFont chalkFont, regFont;
   
 void setup(){
-    //path = sketchPath(audioName);
-    //SoundFile file = new SoundFile(this, path);
-    //file.loop();
+
     
   chalkFont = createFont("data/chalkFont.ttf", 30);
   regFont = createFont("data/regFont.ttf",50);
@@ -41,9 +39,7 @@ void setup(){
 void draw(){
   if(!score.lost()){
     background(sky.display());
-    tint(255,128);
     clouds.display();
-    tint(255,255);
     cone.display();
     cone.move();
     scoops.display();
