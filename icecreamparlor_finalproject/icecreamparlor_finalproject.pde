@@ -1,48 +1,59 @@
 Sky sky = new Sky();
 Scoops scoops = new Scoops();
+Clouds clouds = new Clouds();
 Cone cone;
-PImage coneImg;
+PShape coneSvg;
 PImage life;
-PImage nightPNG;
-
+PImage woodenWall;
+PImage awning;
+PImage checkMark;
+PImage cloud;
 Boolean shouldscore = false;
 Scoreboard score = new Scoreboard();
 //import ddf.minim.*;
 //Minim minim;
 //AudioPlayer player;
-import processing.sound.*;
- SoundFile backgroundMusic;
+//import processing.sound.*;
+ //SoundFile backgroundMusic;
 //replace the sample.mp3 with your audio file name here
-String audioName = "data/mrplastic-hot-air-11027.mp3";
-String path;
-PFont font;
+//String audioName = "data/mrplastic-hot-air-11027.mp3";
+//String path;
+PFont chalkFont, regFont;
   
 void setup(){
-    //path = sketchPath(audioName);
-    //SoundFile file = new SoundFile(this, path);
-    //file.loop();
+
     
-    font = createFont("data/font.ttf", 30);
-    textFont(font, 30);
+  chalkFont = createFont("data/chalkFont.ttf", 30);
+  regFont = createFont("data/regFont.ttf",50);
+  checkMark = loadImage("data/x.png");
   size(510,800);
   scoops.loadShapes();
   //Cone(float xpos, float ypos, int speed)
   cone = new Cone(width/2,height-100,4);
-  coneImg = loadImage("data/cone.png");
-
+  cone.loadImages();
+  clouds.load();
   life = loadImage("data/heart.png");
-  //nightPNG = loadImage("data/night.png");
   frameRate(80);
+  woodenWall = loadImage("data/woodenWall.jpg");
+  awning = loadImage("data/awning.png");
+
+
 }
 
 void draw(){
   if(!score.lost()){
     background(sky.display());
+    clouds.display();
+    
     cone.display();
     cone.move();
     scoops.display();
+    image(woodenWall, 0, 0, width, 175);
+    image(awning, -10, 175, width+10, 60);
     score.display();
+    
     shouldscore = cone.submit(scoops); 
+    
   }else{
     //game over screen
     score.gameOver();

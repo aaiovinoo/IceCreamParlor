@@ -6,12 +6,12 @@ class Scoops{
     Scoop fallenScoop;
    
    Scoops(){
-     this.shapes = new PShape[8];
+     this.shapes = new PShape[9];
      //this.shapes = new PShape[1];
    } 
    
    void loadShapes(){
-     String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "blueberry", "coffee","lemon","strawberry"};
+     String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "cherry","blueberry", "coffee","lemon","strawberry"};
      
      for (int i=0; i<shapes.length; i++){
         String source = "data/" + flavors[i] + ".svg";
@@ -43,6 +43,7 @@ class Scoops{
             scoop.id = newId;
             scoop.shape = scoops.shapes[scoop.id];
             scoop.caught = false;
+            scoop.velocity = (score.level+2)*random(1.3,1.6);
         }
       }
       
@@ -84,7 +85,6 @@ class Scoops{
              println("GOOD JOB! you completed an order");
 
              // TO-DO : call scoreboard and add points
-             
              reset();
              return true;
             }
@@ -92,6 +92,10 @@ class Scoops{
            scoop.position.x = cone.xpos+scoop.offsetCone.x;
            scoop.position.y = cone.ypos+scoop.offsetCone.y - scoop.levelOnStack*30;
            scoop.display();
+           
+           //draw a check
+           
+          image(checkMark, 48+25*i,50,30,30);
           }
           
 

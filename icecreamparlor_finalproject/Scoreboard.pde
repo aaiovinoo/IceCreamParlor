@@ -1,7 +1,7 @@
 class Scoreboard{
-  int points, lives, level;
+  int points, lives, level, pointsRaised; //pointsRaised is how many points the player won in their last cone
   int[] request;
-  
+  ArrayList<Message> messages = new ArrayList<Message>();
  
  Scoreboard(){
     points = 0;
@@ -22,15 +22,16 @@ class Scoreboard{
     int w = width-50;
      int h = 100;
      stroke(255,199,240);
-     strokeWeight(10);
+     strokeWeight(8);
      fill(31,38,42);
-     rect(25,25,w,h,10);
+     rect(25,30,w,h,10);
      fill(255);
      textAlign(RIGHT,CENTER);
-     text(points,w-25,h-25);
+     textFont(chalkFont, 30);
+     text(points,w-25,h-35);
      
     ArrayList<Scoop> scoopsReq = new ArrayList<Scoop>();
-    String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "blueberry", "coffee","lemon","strawberry"};
+    String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "cherry","blueberry", "coffee","lemon","strawberry"};
      for(int i = 0; i < request.length ; i++){
        //corrected some errors with having the right id
        String source = "data/" + flavors[request[i]] + ".svg";
@@ -43,7 +44,7 @@ class Scoreboard{
      int d = 25;
      for(Scoop scoop : scoopsReq){
        scoop.position.x = 50+d;
-       scoop.position.y = 105;
+       scoop.position.y = 78;
        pushMatrix();
        scale(0.5);
        scoop.display();
@@ -56,7 +57,7 @@ class Scoreboard{
  // creates a brand new request 
  // this method is called whenever the user completes an order
  void newRequest(){
-   if(level < 6){
+   if(level < 9){
     request = new int[level];
    }else{
      request = new int[level];
@@ -76,7 +77,10 @@ class Scoreboard{
          newRequest();
      };
      for(int i = 0; i<lives; i++){
-        image(life,50+32*i,40,16,16);
+        image(life,50+32*i,90,16,16);
+     }
+     for (Message msg : messages){
+       msg.display();
      }
      
  }
@@ -84,8 +88,10 @@ class Scoreboard{
  //increates score and increases level
  // the level dictates the size of the order
  void upScore(){
-   points+=(request.length*100);  
-   if (level == 8){ //max size of request
+   pointsRaised = (request.length*100);
+   points+= pointsRaised;  
+   messages.add(new Message("+"+String.valueOf(pointsRaised),new PVector(cone.xpos, height-100),cone.xpos));
+   if (level == 9){ //max size of request
        level = int(random(5,8));
    } else{
      level += 1;
@@ -112,6 +118,8 @@ class Scoreboard{
      sc.scoopstack.clear();
      */
  }
+ 
+
  
  Boolean lost(){
      
