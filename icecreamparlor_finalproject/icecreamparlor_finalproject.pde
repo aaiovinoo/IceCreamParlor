@@ -4,7 +4,8 @@ Clouds clouds = new Clouds();
 Cone cone;
 PShape coneSvg;
 PImage life;
-PImage nightPNG;
+PImage woodenWall;
+PImage awning;
 PImage checkMark;
 PImage cloud;
 Boolean shouldscore = false;
@@ -32,7 +33,8 @@ void setup(){
   cone.loadImages();
   clouds.load();
   life = loadImage("data/heart.png");
-  nightPNG = loadImage("data/night.png");
+  woodenWall = loadImage("data/woodenWall.jpg");
+  awning = loadImage("data/awning.png");
 
 }
 
@@ -40,9 +42,12 @@ void draw(){
   if(!score.lost()){
     background(sky.display());
     clouds.display();
+    
     cone.display();
     cone.move();
     scoops.display();
+    image(woodenWall, 0, 0, width, 175);
+    image(awning, -10, 175, width+10, 60);
     score.display();
     
     shouldscore = cone.submit(scoops); 

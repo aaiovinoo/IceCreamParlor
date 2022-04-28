@@ -22,13 +22,13 @@ class Scoreboard{
     int w = width-50;
      int h = 100;
      stroke(255,199,240);
-     strokeWeight(10);
+     strokeWeight(8);
      fill(31,38,42);
-     rect(25,25,w,h,10);
+     rect(25,30,w,h,10);
      fill(255);
      textAlign(RIGHT,CENTER);
      textFont(chalkFont, 30);
-     text(points,w-25,h-25);
+     text(points,w-25,h-35);
      
     ArrayList<Scoop> scoopsReq = new ArrayList<Scoop>();
     String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "cherry","blueberry", "coffee","lemon","strawberry"};
