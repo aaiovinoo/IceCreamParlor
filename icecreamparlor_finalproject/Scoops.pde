@@ -1,8 +1,9 @@
 class Scoops{
    PShape[] shapes;
-   ArrayList<Scoop> scoopList = new ArrayList<Scoop>();
+    ArrayList<Scoop> scoopList = new ArrayList<Scoop>();
     ArrayList<Scoop> scoopstack = new ArrayList<Scoop>();
-    ArrayList<Scoop> fallingscoops = new ArrayList<Scoop>();
+    
+    Scoop fallenScoop;
    
    Scoops(){
      this.shapes = new PShape[9];
@@ -46,10 +47,12 @@ class Scoops{
         }
       }
       
-       for (Scoop scoop : fallingscoops){ 
-           scoop.fall();
-           scoop.display();
+       if(fallenScoop != null){
+           
+           fallenScoop.discard(3);
+           fallenScoop.display();
        }
+       
       
    } // ends display()
    
@@ -72,7 +75,8 @@ class Scoops{
             //println("doesn't the request");
              scoop.position.x = cone.xpos+scoop.offsetCone.x;
              scoop.position.y = cone.ypos+scoop.offsetCone.y - scoop.levelOnStack*30;
-            fallingscoops.add(scoop);
+            fallenScoop = scoop;
+            fallenScoop.velocity = 0;
             reset();
             return false;
           } else {

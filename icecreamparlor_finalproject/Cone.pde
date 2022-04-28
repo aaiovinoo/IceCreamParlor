@@ -2,9 +2,10 @@ class Cone {
   float xpos, ypos;
   int speed; 
   int numScoops; //should be equal to length of contents, but abi is initializing so she can write her code
-  boolean moveLeft;
+
   ArrayList<PImage> cones;
   PImage currentCone;
+
   
   Cone(float xpos, float ypos, int speed){
     this.xpos = xpos;
@@ -12,7 +13,9 @@ class Cone {
     this.speed = speed;
     numScoops = 0; //initalizes at empty
     moveLeft = true;
+
     cones = new ArrayList<PImage>();
+
   }
   
   void loadImages(){
@@ -30,9 +33,11 @@ class Cone {
      
   
   void display() {
+
     //println(score.level);
     currentCone = cones.get(score.level-1);
     image(currentCone, xpos, ypos,60,100);
+
 
   } 
   
@@ -43,13 +48,22 @@ class Cone {
   void move() {
 
     if(keyPressed && (keyCode == LEFT || keyCode == RIGHT)){
-
-        if (moveLeft){ 
-          xpos -= speed;
-        } else { 
-          xpos += speed;
-        }
+      if(this.xpos >= -60 && this.xpos <= width){
+        this.xpos+=speed;
+      }else if(this.xpos <-60){
+         this.xpos = width-1; 
+      }else{
+         this.xpos = -59; 
+      }
+        
     }
+  }
+  
+  void moveLeft(){
+      speed = -1*abs(speed);
+  }
+  void moveRight(){
+       speed = abs(speed);
   }
                 
 }    

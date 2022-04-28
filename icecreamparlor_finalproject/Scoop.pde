@@ -4,7 +4,8 @@ class Scoop{
   float velocity;
   PShape shape;
   boolean caught;
-  
+  float angle;
+
 
  
   Scoop(int id, PShape shape){
@@ -16,11 +17,16 @@ class Scoop{
     // adding a small difference in velocities to make the cones fall at different times
     caught = false;  
     levelOnStack = 0;
+    angle = 0;
 }
   
   void display(){
     //Draws scoop based on id, vel, pos
-    shape(shape, position.x, position.y, 100, 100); 
+    pushMatrix();
+    translate(position.x,position.y);
+    rotate(angle);
+    shape(shape, 0,0, 100, 100); 
+    popMatrix();
   }
   
   void move(){
@@ -43,9 +49,11 @@ class Scoop{
     display();
   }
   
-  void fall(){
-    position.x += 3;
-    position.y -= 1;
+  void discard(float dx){
+    position.x += dx;
+    position.y += velocity;
+    velocity += 0.2+0.05*velocity;
+    angle += radians(dx);
   }
   
   void catchScoop(){

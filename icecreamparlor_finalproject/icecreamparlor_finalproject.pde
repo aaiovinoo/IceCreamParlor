@@ -33,8 +33,10 @@ void setup(){
   cone.loadImages();
   clouds.load();
   life = loadImage("data/heart.png");
+  frameRate(80);
   woodenWall = loadImage("data/woodenWall.jpg");
   awning = loadImage("data/awning.png");
+
 
 }
 
@@ -63,9 +65,11 @@ void draw(){
 void keyPressed() {
     if (key == CODED){
       if (keyCode == LEFT){
-        cone.moveLeft = true;
+        println("debugL: "+cone.xpos);
+        cone.moveLeft();
       } else  if (keyCode == RIGHT){
-       cone.moveLeft = false;
+        println("debugR: "+cone.xpos);
+       cone.moveRight();
       }
     }
     if(score.lost() && key ==' '){
