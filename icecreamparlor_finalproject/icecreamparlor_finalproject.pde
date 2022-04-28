@@ -33,7 +33,7 @@ void setup(){
   clouds.load();
   life = loadImage("data/heart.png");
   nightPNG = loadImage("data/night.png");
-  frameRate(80);
+
 }
 
 void draw(){
