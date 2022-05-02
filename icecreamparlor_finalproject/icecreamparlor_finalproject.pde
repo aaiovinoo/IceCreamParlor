@@ -29,7 +29,7 @@ void setup(){
   size(510,800);
   scoops.loadShapes();
   //Cone(float xpos, float ypos, int speed)
-  cone = new Cone(width/2,height-100,4);
+  cone = new Cone(width/2,height-100,8);
   cone.loadImages();
   clouds.load();
   life = loadImage("data/heart.png");
@@ -37,7 +37,9 @@ void setup(){
   woodenWall = loadImage("data/woodenWall.jpg");
   awning = loadImage("data/awning.png");
 
-
+  frameRate(30);
+  
+  
 }
 
 void draw(){
@@ -65,16 +67,16 @@ void draw(){
 void keyPressed() {
     if (key == CODED){
       if (keyCode == LEFT){
-        println("debugL: "+cone.xpos);
+        //println("debugL: "+cone.xpos);
         cone.moveLeft();
       } else  if (keyCode == RIGHT){
-        println("debugR: "+cone.xpos);
+        //println("debugR: "+cone.xpos);
        cone.moveRight();
       }
     }
     if(score.lost() && key ==' '){
       //rstarts the game if on Game Over
-      println("debug");
+      //println("debug");
       score = new Scoreboard();
       scoops = new Scoops();
       scoops.loadShapes();
