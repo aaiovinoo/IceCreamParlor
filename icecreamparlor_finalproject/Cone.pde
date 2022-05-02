@@ -12,7 +12,7 @@ class Cone {
     this.ypos = ypos;
     this.speed = speed;
     numScoops = 0; //initalizes at empty
-    //moveLeft = true;
+
 
     cones = new ArrayList<PImage>();
 
