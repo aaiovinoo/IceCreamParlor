@@ -21,8 +21,7 @@ Scoreboard score = new Scoreboard();
 PFont chalkFont, regFont;
   
 void setup(){
-
-    
+  frameRate(90);
   chalkFont = createFont("data/chalkFont.ttf", 30);
   regFont = createFont("data/regFont.ttf",50);
   checkMark = loadImage("data/x.png");
@@ -35,6 +34,7 @@ void setup(){
   life = loadImage("data/heart.png");
   woodenWall = loadImage("data/woodenWall.jpg");
   awning = loadImage("data/awning.png");
+  
 
 }
 
@@ -48,8 +48,7 @@ void draw(){
     scoops.display();
     image(woodenWall, 0, 0, width, 175);
     image(awning, -10, 175, width+10, 60);
-    score.display();
-    
+    score.display(); 
     shouldscore = cone.submit(scoops); 
     
   }else{
