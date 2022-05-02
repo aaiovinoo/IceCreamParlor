@@ -49,7 +49,7 @@ class Scoops{
       
        if(fallenScoop != null){
            
-           fallenScoop.discard(3);
+           fallenScoop.discard(5);
            fallenScoop.display();
        }
        

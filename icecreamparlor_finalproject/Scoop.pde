@@ -23,9 +23,9 @@ class Scoop{
   void display(){
     //Draws scoop based on id, vel, pos
     pushMatrix();
-    translate(position.x,position.y);
+    translate(position.x+50,position.y+50);
     rotate(angle);
-    shape(shape, 0,0, 100, 100); 
+    shape(shape, -50,-50, 100, 100); 
     popMatrix();
   }
   
