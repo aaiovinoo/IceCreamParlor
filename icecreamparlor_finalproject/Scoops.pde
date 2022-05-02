@@ -1,8 +1,9 @@
 class Scoops{
    PShape[] shapes;
    ArrayList<Scoop> scoopList = new ArrayList<Scoop>();
-    ArrayList<Scoop> scoopstack = new ArrayList<Scoop>();
-    ArrayList<Scoop> fallingscoops = new ArrayList<Scoop>();
+   ArrayList<Scoop> scoopstack = new ArrayList<Scoop>();
+   ArrayList<Scoop> fallingscoops = new ArrayList<Scoop>(); 
+
    
    Scoops(){
      this.shapes = new PShape[9];
@@ -42,7 +43,7 @@ class Scoops{
             scoop.id = newId;
             scoop.shape = scoops.shapes[scoop.id];
             scoop.caught = false;
-            scoop.velocity = (score.level+2)*random(1.3,1.6);
+            scoop.velocity = (score.level+5)*random(1.3,1.6);
         }
       }
       
@@ -69,6 +70,9 @@ class Scoops{
       
           if (scoopstack.get(i).id != request.get(i).id){
             score.lives--;
+            //play sound
+            dropScoop.play();
+            dropScoop.rewind();
             //println("doesn't the request");
              scoop.position.x = cone.xpos+scoop.offsetCone.x;
              scoop.position.y = cone.ypos+scoop.offsetCone.y - scoop.levelOnStack*30;

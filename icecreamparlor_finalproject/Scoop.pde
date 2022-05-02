@@ -12,7 +12,7 @@ class Scoop{
     this.shape = shape;
     position = new PVector(id*52,-50);
     offsetCone = new PVector(-20,-40);
-    velocity = 2*random(1,2); //pixels per frame
+    velocity = 5*random(1,2); //pixels per frame
     // adding a small difference in velocities to make the cones fall at different times
     caught = false;  
     levelOnStack = 0;
@@ -58,6 +58,9 @@ class Scoop{
     if (abs(collisionPoint.y - bottom.y) <10){
       if (abs(collisionPoint.x - bottom.x)<20){
         caught = true;
+        //play sound
+        catchScoop.play();
+        catchScoop.rewind();
         //upping the contents;
         levelOnStack = cone.numScoops;
         cone.numScoops += 1;
