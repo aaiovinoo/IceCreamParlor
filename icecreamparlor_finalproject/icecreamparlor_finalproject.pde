@@ -3,6 +3,7 @@ Scoops scoops = new Scoops();;
 Clouds clouds = new Clouds();
 Cone cone;
 PShape coneSvg;
+PShape openSign;
 PImage life;
 PImage woodenWall;
 PImage awning;
@@ -45,7 +46,8 @@ void setup(){
   life = loadImage("data/heart.png");
   woodenWall = loadImage("data/woodenWall.jpg");
   awning = loadImage("data/awning.png");
-  
+  openSign = loadShape("data/openSign.svg");
+
 
 }
 
@@ -53,13 +55,21 @@ void draw(){
   if(!score.lost()){
     background(sky.display());
     clouds.display();
-    
     cone.display();
     cone.move();
     scoops.display();
     image(woodenWall, 0, 0, width, 175);
     image(awning, -10, 175, width+10, 60);
+
     score.display(); 
+
+    pushMatrix();
+    //translate(100,-140);
+    //rotate(PI/8);
+    shape(openSign, width-150, 140,100, 75);
+    popMatrix();
+    score.display();
+
     shouldscore = cone.submit(scoops); 
     
   }else{
