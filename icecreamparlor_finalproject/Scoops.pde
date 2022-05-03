@@ -7,7 +7,6 @@ class Scoops{
    
    Scoops(){
      this.shapes = new PShape[9];
-     //this.shapes = new PShape[1];
    } 
    
    void loadShapes(){
@@ -43,7 +42,7 @@ class Scoops{
             scoop.id = newId;
             scoop.shape = scoops.shapes[scoop.id];
             scoop.caught = false;
-            scoop.velocity = (score.level+5)*random(1.3,1.6);
+            scoop.velocity = (score.level+6)*random(1.3,1.6);
         }
       }
       
@@ -73,15 +72,22 @@ class Scoops{
             //play sound
             dropScoop.play();
             dropScoop.rewind();
+            
+            if(score.lost()){
+              youreFired.play();
+              youreFired.rewind();
+            }
             //println("doesn't the request");
              scoop.position.x = cone.xpos+scoop.offsetCone.x;
              scoop.position.y = cone.ypos+scoop.offsetCone.y - scoop.levelOnStack*30;
             fallingscoops.add(scoop);
+            
             reset();
             return false;
           } else {
             if (i == request.size()-1){
-
+              chaChing.play();
+              chaChing.rewind();
              println("GOOD JOB! you completed an order");
 
              // TO-DO : call scoreboard and add points

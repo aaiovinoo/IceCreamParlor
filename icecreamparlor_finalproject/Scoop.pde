@@ -5,14 +5,12 @@ class Scoop{
   PShape shape;
   boolean caught;
   
-
- 
   Scoop(int id, PShape shape){
     this.id = id;
     this.shape = shape;
     position = new PVector(id*52,-50);
     offsetCone = new PVector(-20,-40);
-    velocity = 5*random(1,2); //pixels per frame
+    velocity = 6*random(1,2); //pixels per frame
     // adding a small difference in velocities to make the cones fall at different times
     caught = false;  
     levelOnStack = 0;
@@ -37,6 +35,18 @@ class Scoop{
         int newId = int(random(scoops.shapes.length));
         id = newId;
         shape = scoops.shapes[id];
+        //play random angry sound
+       
+        if (counter2%11 == 0 && !score.lost()){
+          int idx;
+          idx = counter%7;
+          println(idx);
+          angryMan.get(idx).play();
+          angryMan.get(idx).rewind();
+          
+          counter += 1;
+        }
+        counter2 += 1;
       }
     }
     
