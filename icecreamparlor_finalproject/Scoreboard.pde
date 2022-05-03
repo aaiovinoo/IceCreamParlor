@@ -29,7 +29,9 @@ class Scoreboard{
      fill(255);
      textAlign(RIGHT,CENTER);
      textFont(chalkFont, 30);
-     text(points,w-25,h-35);
+     text(points,w-25,h-40);
+     textFont(chalkFont, 20);
+     text("Level: "+level,w-25,h-5);
      
     ArrayList<Scoop> scoopsReq = new ArrayList<Scoop>();
     String[] flavors = new String[]{"vanilla", "chocolate", "mint", "grape", "cherry","blueberry", "coffee","lemon","strawberry"};
@@ -125,6 +127,7 @@ class Scoreboard{
  Boolean lost(){
      
      if (lives == 0){
+       
         return true;
        /*
         textSize(100);
@@ -136,7 +139,7 @@ class Scoreboard{
  }
  
  void gameOver(){
-        textSize(80);
+        textFont(regFont, 80); 
         textAlign(CENTER,CENTER);
         text("GAME OVER", width/2, height/2);
         if(!scoreSaved){
