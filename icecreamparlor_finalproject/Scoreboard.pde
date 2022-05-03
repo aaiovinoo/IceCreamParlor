@@ -2,12 +2,13 @@ class Scoreboard{
   int points, lives, level, pointsRaised; //pointsRaised is how many points the player won in their last cone
   int[] request;
   ArrayList<Message> messages = new ArrayList<Message>();
+  Boolean scoreSaved;
  
  Scoreboard(){
     points = 0;
-    lives = 3;
+    lives = 8;
     level = 1;
-    
+    scoreSaved = false;
     // TO DO make the request larger when level advances
    
     request = new int[level];
@@ -141,11 +142,36 @@ class Scoreboard{
         textFont(regFont, 80); 
         textAlign(CENTER,CENTER);
         text("GAME OVER", width/2, height/2);
+        if(!scoreSaved){
+          exportScore();
+          scoreSaved = true;
+        }
  }
  
  void restart(){
     points = 0;
     
  }
+ 
+ void exportScore(){
+   Table highScores = loadTable("data/Scores.csv", "header");
+   for(TableRow row : highScores.rows()){
+       println("Score: " + row.getInt("Score"));
+   }
+   
+   
+   TableRow newScore= highScores.addRow();
+   newScore.setInt(highScores.getColumnCount()-1,points);
+   println();
+   for(TableRow row : highScores.rows()){
+       println("Score: " + row.getInt("Score"));
+   }
+   
+  saveTable(highScores,"data/Scores.csv");
+   
+   
+   
+ }
+ 
   
 }

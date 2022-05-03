@@ -45,11 +45,15 @@ void setup(){
   cone.loadImages();
   clouds.load();
   life = loadImage("data/heart.png");
+  frameRate(80);
   woodenWall = loadImage("data/woodenWall.jpg");
   awning = loadImage("data/awning.png");
   openSign = loadShape("data/openSign.svg");
   
 
+  frameRate(30);
+  
+  
 }
 
 void draw(){
@@ -95,14 +99,16 @@ super.stop();
 void keyPressed() {
     if (key == CODED){
       if (keyCode == LEFT){
-        cone.moveLeft = true;
+        //println("debugL: "+cone.xpos);
+        cone.moveLeft();
       } else  if (keyCode == RIGHT){
-       cone.moveLeft = false;
+        //println("debugR: "+cone.xpos);
+       cone.moveRight();
       }
     }
     if(score.lost() && key ==' '){
       //rstarts the game if on Game Over
-      println("debug");
+      //println("debug");
       score = new Scoreboard();
       scoops = new Scoops();
       scoops.loadShapes();
