@@ -22,8 +22,9 @@ class Scoreboard{
  ArrayList<Scoop> createRequest(){
     int w = width-50;
      int h = 100;
-     stroke(255,199,240);
-     strokeWeight(8);
+     //stroke(161,91,205);
+     stroke(147,112,219);
+     strokeWeight(6);
      fill(31,38,42);
      rect(25,30,w,h,10);
      fill(255);
