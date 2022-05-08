@@ -46,7 +46,7 @@ class Scoop{
         if (counter2%11 == 0 && !score.lost()){
           int idx;
           idx = counter%7;
-          println(idx);
+          //println(idx);
           angryMan.get(idx).play();
           angryMan.get(idx).rewind();
           

@@ -14,8 +14,8 @@ class Scrollbar{
   }
   
   void display(){
-     strokeWeight(5);
-     stroke(color(249, 16, 94));
+     strokeWeight(4);
+     stroke(color(200,204,231));
      line(position.x, position.y, position.x+w, position.y);
      
      if (grab){
@@ -30,9 +30,9 @@ class Scrollbar{
         value = mouseX;
        }
        buttonPosition.x = value;
-       button = new RoundButton(new PVector(value, position.y), new PVector(20,20), color(249,44,85));
+       button = new RoundButton(new PVector(value, position.y), new PVector(20,20),color(195,185,249));
      } else{
-     button = new RoundButton(buttonPosition, new PVector(20,20),color(249,44,85));
+     button = new RoundButton(buttonPosition, new PVector(18,18),color(251,134,30));
      }
      button.display();
      
@@ -41,14 +41,14 @@ class Scrollbar{
      value = lerp(min-40,max,(buttonPosition.x-position.x)/w);
      //gain.setValue(value);
      backgroundMusic.setGain(value);
-     println(backgroundMusic.getGain());
+     //println(backgroundMusic.getGain());
      for (AudioPlayer man : angryMan) {
         man.setGain(value);
      }
      catchScoop.setGain(value); 
      dropScoop.setGain(value);
      youreFired.setGain(value);
-     println("if the min is",min,"and the max is",max,"then the button is at",value);
+     //println("if the min is",min,"and the max is",max,"then the button is at",value);
   }
   
   
