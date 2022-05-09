@@ -1,13 +1,14 @@
 class Scoreboard{
-  int points, lives, level, pointsRaised; //pointsRaised is how many points the player won in their last cone
+  int points, lives, level, pointsRaised, topScore; //pointsRaised is how many points the player won in their last cone
   int[] request;
   ArrayList<Message> messages = new ArrayList<Message>();
   Boolean scoreSaved;
- 
+   
  Scoreboard(){
     points = 0;
-    lives = 8;
+    lives = 3;
     level = 1;
+    topScore = 0;
     scoreSaved = false;
     // TO DO make the request larger when level advances
    
@@ -21,11 +22,14 @@ class Scoreboard{
   // creates an array list of scoops according to the request
  ArrayList<Scoop> createRequest(){
     int w = width-50;
+
+     rectMode(CORNER);
      int h = 108;
      //stroke(161,91,205);
      //stroke(147,112,219);
      stroke(248,131,208);
      strokeWeight(6);
+
      fill(31,38,42);
      rect(25,30,w,h,10);
      fill(255);
@@ -129,25 +133,51 @@ class Scoreboard{
  Boolean lost(){
      
      if (lives == 0){
-       
-        return true;
-       /*
-        textSize(100);
-        textAlign(CENTER,CENTER);
-        text("GAME OVER", width/2, height/2);
-        */
+       return true;
      }
      return false;
  }
  
  void gameOver(){
-        textFont(regFont, 80); 
-        textAlign(CENTER,CENTER);
-        text("GAME OVER", width/2, height/2);
-        if(!scoreSaved){
-          exportScore();
-          scoreSaved = true;
-        }
+     rectMode(CENTER);
+     
+     stroke(255,199,240);
+     strokeWeight(8);
+     fill(31,38,42);
+     rect(width/2,height/2, width-50, height-50,10);
+     
+    stroke(255);
+    fill(255); 
+    textFont(regFont, 70); 
+    textAlign(CENTER,CENTER);
+    text("GAME OVER", width/2, 100);
+    textFont(regFont, 50); 
+    String s = "SCORE: " + points;
+    text(s,width/2,200);
+    
+    if(!scoreSaved){
+      exportScore();
+      scoreSaved = true;
+    }
+    s = "High Score: " + topScore;
+    text(s,width/2,300);
+    
+    stroke(255,199,240);
+    fill(245,166,224);
+    rect(width/2,500,300,100,10);
+    fill(255);
+    text("RESTART",width/2,500);
+    if((mouseX > width/2-150 && mouseX < width/2+150) && (mouseY > 500-50 && mouseY < 500+50)){
+       cursor(HAND);
+       if(mousePressed){
+           restartGame();
+           cursor(ARROW);
+       }
+    }
+    else{
+       cursor(ARROW); 
+    }
+    
  }
  
  void restart(){
@@ -156,23 +186,30 @@ class Scoreboard{
  }
  
  void exportScore(){
+   
    Table highScores = loadTable("data/Scores.csv", "header");
+   int[] scoreList = new int[highScores.getRowCount()+1]; 
    for(TableRow row : highScores.rows()){
-       println("Score: " + row.getInt("Score"));
+       //println("Score: " + row.getInt("Score"));
    }
-   
-   
    TableRow newScore= highScores.addRow();
    newScore.setInt(highScores.getColumnCount()-1,points);
    println();
+   int t = 0;
    for(TableRow row : highScores.rows()){
        println("Score: " + row.getInt("Score"));
+       scoreList[t] = row.getInt("Score");
+       t++;
    }
-   
+   println();
   saveTable(highScores,"data/Scores.csv");
-   
-   
-   
+  for(int sc : scoreList){
+     println(sc); 
+  }
+  println();
+  topScore = max(scoreList);
+  
+  
  }
  
   

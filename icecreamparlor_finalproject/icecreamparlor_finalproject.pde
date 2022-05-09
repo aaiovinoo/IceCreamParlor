@@ -180,3 +180,9 @@ void mouseReleased(){
     scroll.buttonPosition.x = value;
  }
 }
+
+void restartGame(){
+  score = new Scoreboard();
+  scoops = new Scoops();
+  scoops.loadShapes();
+}
