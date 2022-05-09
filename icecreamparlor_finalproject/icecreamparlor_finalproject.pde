@@ -115,3 +115,9 @@ void keyPressed() {
     }
    
 }
+
+void restartGame(){
+  score = new Scoreboard();
+  scoops = new Scoops();
+  scoops.loadShapes();
+}
