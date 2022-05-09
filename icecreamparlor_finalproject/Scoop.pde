@@ -27,6 +27,16 @@ class Scoop{
     popMatrix();
   }
   
+  void wiggle(float radian){
+    println(radian);
+    //Draws scoop based on id, vel, pos
+    pushMatrix();
+    translate(position.x+50,position.y+50);
+    rotate(radian);
+    shape(shape, -50,-50, 100, 100); 
+    popMatrix();
+  }
+  
   void move(){
     //makes scoop fall
     if (!caught){
@@ -54,9 +64,10 @@ class Scoop{
         }
         counter2 += 1;
       }
-    }
+      display();
+    } 
     
-    display();
+    
   }
   
   void discard(float dx){

@@ -65,7 +65,7 @@ void setup(){
   size(510,800);
   scoops.loadShapes();
   //Cone(float xpos, float ypos, int speed)
-  cone = new Cone((width-70)/2,height-100,8);
+  cone = new Cone((width-70)/2,height-100,10);
   cone.loadImages();
   clouds.load();
   life = loadImage("data/heart.png");

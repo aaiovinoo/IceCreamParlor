@@ -18,7 +18,7 @@ class RoundButton{
       //c = color(121,130,187);
     }
     //stroke(color(hue(c)+10, saturation(c), brightness(c)));
-    strokeWeight(2);
+    strokeWeight(3);
     //c = color(hue(c), value, brightness(c));
     fill(c);
     ellipse(position.x, position.y, size.x, size.y);
