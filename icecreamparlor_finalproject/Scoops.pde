@@ -102,7 +102,16 @@ class Scoops{
           //println("matches for request");
            scoop.position.x = cone.xpos+scoop.offsetCone.x;
            scoop.position.y = cone.ypos+scoop.offsetCone.y - scoop.levelOnStack*30;
-           scoop.display();
+           //scoop.display();
+           float probablility = random(0,1);
+           if (probablility<.1){
+             scoop.wiggle(PI/12*random(-.75,.75));
+           } else{
+             scoop.display();
+           }
+            
+           
+          
            
            //draw a check
            

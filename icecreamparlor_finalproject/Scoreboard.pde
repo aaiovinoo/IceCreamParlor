@@ -21,9 +21,11 @@ class Scoreboard{
   // creates an array list of scoops according to the request
  ArrayList<Scoop> createRequest(){
     int w = width-50;
-     int h = 100;
-     stroke(255,199,240);
-     strokeWeight(8);
+     int h = 108;
+     //stroke(161,91,205);
+     //stroke(147,112,219);
+     stroke(248,131,208);
+     strokeWeight(6);
      fill(31,38,42);
      rect(25,30,w,h,10);
      fill(255);
