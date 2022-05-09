@@ -12,14 +12,24 @@ class Sky{
     
   }
   
-  color display(){
-       int h = hour();
-       if (20 < h || h < 8){
-         c = color(10,0,102);
+  void toggleColor(color c){
+    backgroundColor = c;
+    /*
+    if (backgroundColor == color(137,207,240)){
+         backgroundColor = color(10,0,102);
        } else{
-         c = color(137,207,240);
+         backgroundColor = color(137,207,240);
+       }*/
+  }
+  int display(){
+       int h = hour();
+       int idx;
+       if (20 < h || h < 8){
+         idx = 1;
+       } else{
+         idx = 0;
        }
-       return c;
+       return idx;
        
   }
   
