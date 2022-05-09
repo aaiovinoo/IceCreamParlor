@@ -1,0 +1,32 @@
+##Ice Cream Parlor Final Project Description
+
+#Abstract:
+icecream_parlor.pde runs an endless arcade style game. 
+The objective of the game is to score as many points as possible before running out of lives.
+Points are earned by catching falling scoops of ice cream in a cone, which can be moved left to right by the player.
+The only direct agency the player has is to move the cone.
+Only scoops and stacks of scoops that match the "order" at the top of the screen will earn points. 
+Any other scoops caught will net 0 points and will subtract one life from the life total, displayed as teh number of hearts.
+As more orders are fulfilled, the scoops fall faster and larger orders begin to appear. 
+
+Various animations and aesthetic features have been implemented to make the game engaging.
+
+#Classes:
+
+Cloud - draws a single cloud in the background
+Clouds - loads and displays an array of Cloud objects
+Cone - draws and moves the cone. As game progresses, different cones are displayed. Also checks for collisions with Scoop objects
+Message - creates little floating messages with points earned when order is fulfilled
+Scoop - draws and moves an ice cream scoop
+Scoops - manages 3 arrays of Scoop objects: Falling Scoops, Scoops on the Cone, and the Current Order
+Scoreboard - draws the score, lives, and order and keeps track of all 3 items. Also imports/exports the score to/from a high scores csv
+Sky - draws the sky background, which changes shade based on the computer's clock. Nighttime is dark, daytime is bright
+
+#Unexpected Challenges:
+
+Most of our project went relatively smoothly. The game began running very slowly, especially once we added sound, so we had to drop the framerate to 30fps.
+We also had some issues with loading svgs for some objects, and had to switch to pngs for the cones. We also wanted to add more features to increase the complexity of the game, like bouncing cones and debuffs to movement, but ran out of time
+
+Contributions:
+Abi: All visuals, sound, basis for Scoop and Scoops, Cloud, Sky, Messages classes
+Ashwin: All physics, SCoreboard and Cone classes, and integration
